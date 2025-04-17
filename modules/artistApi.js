@@ -25,4 +25,19 @@ async function getArtist(artistId){
     }
 }
 
-export {getArtists, getArtist}
+async function deleteArtist(artistId){
+    try {
+        let response = await fetch(`http://localhost:4000/api/artists/${artistId}`, {
+            method: "DELETE",
+        });
+        if(response.status === 404){
+            throw new Error();
+        }
+        let artist = response.json();
+        console.log(artist)
+    } catch(error){
+        console.log(error);
+    }
+}
+
+export {getArtists, getArtist, deleteArtist}

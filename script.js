@@ -1,4 +1,7 @@
-import { getArtists, getArtist } from "./modules/artistApi.js";
+import { getArtists, getArtist, deleteArtist } from "./modules/artistApi.js";
 
-getArtists();
-getArtist("6643b1688c94709aaaa9db7f");
+async function createArtistCards(){
+    let artists = await getArtists();
+}
+
+createArtistCards();
