@@ -12,7 +12,7 @@ async function getArtist(artistId){
         }
         let artist = await response.json();
         console.log(artist)
-    } catch {
+    } catch (error){
         console.log(error)
     }
 }
