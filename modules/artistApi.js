@@ -1,7 +1,15 @@
 async function getArtists(){
-    let response = await fetch("http://localhost:4000/api/artists/");
-    let artists = await response.json();
-    console.log(artists)
+    try {
+        let response = await fetch("http://localhost:4000/api/artists/");
+        if(response.status === 404){
+            throw new Error("cannot get artists");
+        }
+        let artists = await response.json();
+        return artists;
+    } catch(error){
+
+    }
+    
 }
 
 async function getArtist(artistId){
@@ -11,7 +19,7 @@ async function getArtist(artistId){
             throw new Error("band not found")
         }
         let artist = await response.json();
-        console.log(artist)
+        return artist;
     } catch (error){
         console.log(error)
     }
