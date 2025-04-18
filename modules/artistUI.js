@@ -1,4 +1,5 @@
 import { deleteArtist } from "./artistApi.js";
+import { backendUrl } from "./constants.js";
 
 export function renderArtist(artist, container, handleDeleteArtist){
     
@@ -6,7 +7,7 @@ export function renderArtist(artist, container, handleDeleteArtist){
     let artistImage = document.createElement("img")
     let artistTitle = document.createElement("h2");
     artistTitle.textContent = artist.name;
-    artistImage.src = "http://localhost:4000/" + artist.image;
+    artistImage.src = backendUrl + artist.image;
 
     let deleteArtistButton = document.createElement("button");
     deleteArtistButton.textContent = "Delete Artist";

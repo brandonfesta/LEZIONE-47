@@ -1,6 +1,10 @@
+
+import { backendUrl } from "./constants.js";
+
+
 async function getArtists(){
     try {
-        let response = await fetch("http://localhost:4000/api/artists/");
+        let response = await fetch(backendUrl+"api/artists/");
         if(response.status === 404){
             throw new Error("cannot get artists");
         }
@@ -14,7 +18,7 @@ async function getArtists(){
 
 async function getArtist(artistId){
     try {
-        let response = await fetch(`http://localhost:4000/api/artists/${artistId}`);
+        let response = await fetch(backendUrl+`api/artists/${artistId}`);
         if(response.status === 404){
             throw new Error("band not found")
         }
@@ -27,7 +31,7 @@ async function getArtist(artistId){
 
 async function deleteArtist(artistId){
     try {
-        let response = await fetch(`http://localhost:4000/api/artists/${artistId}`, {
+        let response = await fetch(backendUrl + `api/artists/${artistId}`, {
             method: "DELETE",
         });
         if(response.status === 404){
