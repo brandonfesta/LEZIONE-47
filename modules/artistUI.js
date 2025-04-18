@@ -1,7 +1,6 @@
+import { deleteArtist } from "./artistApi.js";
 
-let artistsContainer = document.getElementById("artists-container");
-
-export function renderArtist(artist){
+export function renderArtist(artist, container){
     
     let artistContainer = document.createElement("article");
     let artistImage = document.createElement("img")
@@ -9,9 +8,19 @@ export function renderArtist(artist){
     artistTitle.textContent = artist.name;
     artistImage.src = "http://localhost:4000/" + artist.image;
 
+    let deleteArtistButton = document.createElement("button");
+    deleteArtistButton.textContent = "Delete Artist";
+
+    deleteArtistButton.addEventListener("click", () => {
+        deleteArtist(artist._id)
+        alert(artist.name + " cancellato")
+        
+    })
+
     artistContainer.append(artistImage);
     artistContainer.append(artistTitle);
+    artistContainer.append(deleteArtistButton);
 
-    artistsContainer.append(artistContainer);
+    container.append(artistContainer);
 
 }

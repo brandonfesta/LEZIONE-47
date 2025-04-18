@@ -5,7 +5,7 @@ let artistsContainer = document.getElementById("artists-container");
 
 async function createArtistCards(){
     let artists = await getArtists();
-    artists.map(artist => renderArtist(artist))
+    artists.map(artist => renderArtist(artist, artistsContainer))
 }
 
 createArtistCards();
