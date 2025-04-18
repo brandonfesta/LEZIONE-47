@@ -1,6 +1,6 @@
 import { deleteArtist } from "./artistApi.js";
 
-export function renderArtist(artist, container){
+export function renderArtist(artist, container, handleDeleteArtist){
     
     let artistContainer = document.createElement("article");
     let artistImage = document.createElement("img")
@@ -12,9 +12,7 @@ export function renderArtist(artist, container){
     deleteArtistButton.textContent = "Delete Artist";
 
     deleteArtistButton.addEventListener("click", () => {
-        deleteArtist(artist._id)
-        alert(artist.name + " cancellato")
-        
+        handleDeleteArtist(artist._id);
     })
 
     artistContainer.append(artistImage);
